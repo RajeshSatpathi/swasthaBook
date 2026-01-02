@@ -1,0 +1,9 @@
+.bgHero{
+      width: 100%;
+
+    background-image: url("../../../assets/img/Mainbg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  
+}

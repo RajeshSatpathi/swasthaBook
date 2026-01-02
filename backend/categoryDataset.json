@@ -1,0 +1,49 @@
+[
+  { "name": "সাধারণ চিকিৎসক (General Physician)", "slug": "general-physician" },
+  { "name": "মেডিসিন বিশেষজ্ঞ (Internal Medicine)", "slug": "internal-medicine" },
+
+  { "name": "হৃদরোগ বিশেষজ্ঞ (Cardiology)", "slug": "cardiology" },
+  { "name": "মস্তিষ্ক ও স্নায়ু বিশেষজ্ঞ (Neurology)", "slug": "neurology" },
+  { "name": "ফুসফুস বিশেষজ্ঞ (Pulmonology)", "slug": "pulmonology" },
+  { "name": "পাকস্থলী ও লিভার বিশেষজ্ঞ (Gastroenterology)", "slug": "gastroenterology" },
+  { "name": "কিডনি বিশেষজ্ঞ (Nephrology)", "slug": "nephrology" },
+  { "name": "ডায়াবেটিস ও হরমোন বিশেষজ্ঞ (Endocrinology)", "slug": "endocrinology" },
+  { "name": "বাত ও জয়েন্ট বিশেষজ্ঞ (Rheumatology)", "slug": "rheumatology" },
+  { "name": "রক্তরোগ বিশেষজ্ঞ (Hematology)", "slug": "hematology" },
+  { "name": "ক্যান্সার বিশেষজ্ঞ (Oncology)", "slug": "oncology" },
+  { "name": "সংক্রামক রোগ বিশেষজ্ঞ (Infectious Disease)", "slug": "infectious-disease" },
+
+  { "name": "মানসিক রোগ বিশেষজ্ঞ (Psychiatry)", "slug": "psychiatry" },
+  { "name": "মনোবিজ্ঞানী (Psychologist)", "slug": "psychology" },
+
+  { "name": "সাধারণ সার্জারি (General Surgery)", "slug": "general-surgery" },
+  { "name": "হাড় ও জয়েন্ট বিশেষজ্ঞ (Orthopedic)", "slug": "orthopedic" },
+  { "name": "নিউরো সার্জন (Neurosurgery)", "slug": "neurosurgery" },
+  { "name": "হার্ট সার্জন (Cardiac Surgery)", "slug": "cardiac-surgery" },
+  { "name": "প্লাস্টিক ও কসমেটিক সার্জন (Plastic Surgery)", "slug": "plastic-surgery" },
+
+  { "name": "নাক, কান, গলা বিশেষজ্ঞ (ENT)", "slug": "ent" },
+  { "name": "চক্ষু বিশেষজ্ঞ (Ophthalmology)", "slug": "ophthalmology" },
+  { "name": "দন্ত চিকিৎসক (Dentistry)", "slug": "dentistry" },
+  { "name": "অর্থোডন্টিস্ট (Orthodontics)", "slug": "orthodontics" },
+
+  { "name": "চর্ম ও যৌনরোগ বিশেষজ্ঞ (Dermatology)", "slug": "dermatology" },
+  { "name": "কসমেটোলজি (Cosmetology)", "slug": "cosmetology" },
+
+  { "name": "স্ত্রী ও প্রসূতি রোগ বিশেষজ্ঞ (Gynecology & Obstetrics)", "slug": "gynecology-obstetrics" },
+  { "name": "শিশু রোগ বিশেষজ্ঞ (Pediatrics)", "slug": "pediatrics" },
+  { "name": "নবজাতক বিশেষজ্ঞ (Neonatology)", "slug": "neonatology" },
+
+  { "name": "মূত্র ও পুরুষ রোগ বিশেষজ্ঞ (Urology)", "slug": "urology" },
+  { "name": "যৌনরোগ বিশেষজ্ঞ (Sexology)", "slug": "sexology" },
+
+  { "name": "রেডিওলজি (Radiology)", "slug": "radiology" },
+  { "name": "প্যাথলজি (Pathology)", "slug": "pathology" },
+
+  { "name": "ফিজিওথেরাপি (Physiotherapy)", "slug": "physiotherapy" },
+  { "name": "স্পোর্টস মেডিসিন (Sports Medicine)", "slug": "sports-medicine" },
+
+  { "name": "পুষ্টিবিদ (Nutritionist)", "slug": "nutritionist" },
+  { "name": "জরুরি চিকিৎসা (Emergency Medicine)", "slug": "emergency-medicine" },
+  { "name": "অ্যানেস্থেসিয়া ও ব্যথা চিকিৎসা (Anesthesiology)", "slug": "anesthesiology" }
+]
