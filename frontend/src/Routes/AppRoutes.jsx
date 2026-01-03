@@ -25,6 +25,7 @@ import ProtectedRoutes from './ProtectedRoutes.jsx'
 import AddDoctors from '../Admin/adminPages/Doctors/AddDoctors.jsx'
 import Doctor from '../Admin/adminPages/Doctors/Doctor.jsx'
 import AdminProfile from '../Admin/adminPages/AdminProfile/AdminProfile.jsx'
+import ViewClinic from '../User/Userpages/Clinics/ViewClinic.jsx'
 function AppRoutes() {
   const { loading, user, isAuthentication } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
@@ -75,6 +76,8 @@ function AppRoutes() {
           <Route path='/doctors' element={<Doctors />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/clinics' element={< Clinic />} />
+          <Route path='/viewclinics/:id' element={< ViewClinic />} />
+
           <Route path='/login' element={< Login />} />
           <Route path='/register' element={< SignUp />} />
           <Route path='/myappointment' element={< Myappointment />} />

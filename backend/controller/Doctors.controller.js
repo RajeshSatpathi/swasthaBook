@@ -115,3 +115,38 @@ export const GETdoctorAPIByClinicID = async (req, res) => {
         });
     }
 };
+
+// get doctor by frontend send clinic ID using [params]
+export const GETdoctorAPIByClinicIDUsingParams = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const allDoctors = await Doctors.find({ clinicId: id }).populate({
+            path: "clinicId",
+            populate: {
+                path: "userId",
+                select: "name" // select only what you need
+            }
+        });
+
+        if (allDoctors.length === 0) {
+            return res.status(200).json({
+                success: true,
+                message: "No doctor records found",
+                Doctors: []
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Doctors successfully fetched",
+            Doctors: allDoctors
+        });
+
+    } catch (error) {
+        console.error("Get doctor error:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error"
+        });
+    }
+};

@@ -47,6 +47,21 @@ export const GETdoctorsByclinicIdAPI = createAsyncThunk(
         }
     }
 );
+//doctor on the basis of clinicwise  api call 
+export const GETdoctorAPIByClinicIDUsingParams = createAsyncThunk(
+    "doctors/getbyclinicID",
+    async ({ id }, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(`${APIBase_url}/api/doctors/${id}`,
+                {
+                    withCredentials: true,
+                });
+            return response.data; // contains token, user, etc.
+        } catch (error) {
+            return rejectWithValue(error.response?.data || "Something went wrong");
+        }
+    }
+);
 
 //initialState::::::::
 const initialState = {
@@ -115,6 +130,24 @@ const doctorSlice = createSlice({
             })
             // GETdoctorsByclinicIdAPI - Failed
             .addCase(GETdoctorsAPI.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            });
+        builder
+            // GETdoctorAPIByClinicIDUsingParams - Pending
+            .addCase(GETdoctorAPIByClinicIDUsingParams.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+
+            // GETdoctorAPIByClinicIDUsingParams - Success
+            .addCase(GETdoctorAPIByClinicIDUsingParams.fulfilled, (state, action) => {
+                state.loading = false;
+                state.Doctors = action.payload.success ? action.payload.Doctors : null;
+
+            })
+            // GETdoctorAPIByClinicIDUsingParams - Failed
+            .addCase(GETdoctorAPIByClinicIDUsingParams.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             });
