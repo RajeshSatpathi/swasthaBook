@@ -123,3 +123,70 @@ export const getClinicByUserIDAPI = async (req, res) => {
         });
     }
 }
+
+
+//update clinic api by super admin 
+
+export const adminUpdateClinicByIdAPI = async (req, res) => {
+    try {
+        const { clinicId } = req.params;
+        const {
+            name,
+            email,
+            city,
+            place,
+            dist,
+            state,
+            pincode,
+            primarymobno,
+            alternatemobno
+        } = req.body;
+        // Optional profile image
+        const profileimg = req.file ? req.file.path : undefined;
+        // 🔹 Find clinic
+        const clinic = await Clinic.findById(clinicId);
+        if (!clinic) {
+            return res.status(404).json({
+                success: false,
+                message: "Clinic not found"
+            });
+        }
+        // 🔹 Update clinic fields
+        if (city) clinic.city = city;
+        if (place) clinic.place = place;
+        if (dist) clinic.dist = dist;
+        if (state) clinic.state = state;
+        if (pincode) clinic.pincode = pincode;
+        if (primarymobno) clinic.primarymobno = primarymobno;
+        if (alternatemobno) clinic.alternatemobno = alternatemobno;
+
+        await clinic.save();
+
+        // 🔹 Update linked user
+        const user = await User.findById(clinic.userId);
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "Linked user not found"
+            });
+        }
+        if (name) user.name = name;
+        if (email) user.email = email;
+        if (profileimg) user.profileimg = profileimg;
+        await user.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Clinic updated successfully by admin",
+            clinic
+        });
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: "Admin clinic update server error"
+        });
+    }
+
+}

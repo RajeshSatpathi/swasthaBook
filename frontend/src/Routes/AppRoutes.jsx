@@ -17,7 +17,6 @@ import Login from '../User/Userpages/Auth/Login.jsx'
 import SignUp from '../User/Userpages/Auth/SignUp.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { CheckAuthAPI } from '../Features/UserFeature/AuthFeature/AuthSlice.jsx'
-
 import { MoonLoader } from "react-spinners"
 import Myappointment from '../User/Userpages/Appointment/Myappointment.jsx'
 import Bookappointment from '../User/Userpages/Appointment/Bookappointment.jsx'
@@ -26,6 +25,7 @@ import AddDoctors from '../Admin/adminPages/Doctors/AddDoctors.jsx'
 import Doctor from '../Admin/adminPages/Doctors/Doctor.jsx'
 import AdminProfile from '../Admin/adminPages/AdminProfile/AdminProfile.jsx'
 import ViewClinic from '../User/Userpages/Clinics/ViewClinic.jsx'
+import AdminEditClinic from '../Admin/adminPages/Clinic/AdminEditClinic.jsx'
 function AppRoutes() {
   const { loading, user, isAuthentication } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
@@ -60,6 +60,8 @@ function AppRoutes() {
           <Route path='/Admin-addClinic' element={<AddClinic />} />
           <Route path='/Admin-adddoctor' element={<AddDoctors />} />
           <Route path='/Admin-profile' element={<AdminProfile />} />
+          <Route path='/Admin/editclinic/:id' element={<AdminEditClinic />} />
+
 
 
         </Route>
@@ -81,7 +83,7 @@ function AppRoutes() {
           <Route path='/login' element={< Login />} />
           <Route path='/register' element={< SignUp />} />
           <Route path='/myappointment' element={< Myappointment />} />
-          <Route path='/bookappointment' element={< Bookappointment />} />
+          <Route path='/bookappointment/:id' element={< Bookappointment />} />
         </Route>
       </Routes>
     </div>

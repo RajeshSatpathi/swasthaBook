@@ -8,7 +8,7 @@ import { customStyles } from "../../../Component/AdminComponent/CustomStyle";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { GETClinicAPI } from "../../../Features/AdminFeature/ClinicSlice";
-
+import {Link} from "react-router-dom"
 const columns = [
   {
     name: "Banner",
@@ -19,6 +19,8 @@ const columns = [
         className="w-16 h-16 rounded object-cover"
       />
     ),
+    minWidth: "50px",
+    maxWidth: "130px",
   },
   {
     name: "Name",
@@ -35,13 +37,17 @@ const columns = [
     selector: row =>
       `${row?.place || ""}, ${row?.city || ""}, ${row?.dist || ""}, ${row?.state || ""}`,
     sortable: true,
+    minWidth: "250px",
+    maxWidth: "400px",
+    grow: 2, // allows column to take more space
   },
   {
     name: "Actions",
     cell: row => (
       <div className="flex gap-4">
-        <FiEye size={17} color="#02C98D" className="cursor-pointer" />
-        <FaRegEdit size={17} color="#0575E6" className="cursor-pointer" />
+        <Link to={`/admin/editclinic/${row._id}`}>   
+        <FaRegEdit size={17} color="#0575E6" className="cursor-pointer" /> </Link>
+    
         <MdOutlineDeleteOutline size={17} color="red" className="cursor-pointer" />
       </div>
     ),

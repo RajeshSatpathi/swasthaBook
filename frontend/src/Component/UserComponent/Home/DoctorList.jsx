@@ -1,6 +1,7 @@
 import React from 'react'
 import HeadingCard from './HeadingCard'
 import { IoCallOutline, IoLocationOutline } from 'react-icons/io5'
+import {Link} from "react-router-dom"
 
 function DoctorList({ Doctors }) {
     return (
@@ -38,11 +39,10 @@ function DoctorList({ Doctors }) {
                                         </div>
                                     </div>
                           
-                                    <div className='flex justify-between mt-3'>
-                                        <button className='text-xs text-shadow-2xs 
-                                         border border-gray-500 p-1.5 rounded-3xl px-4 flex items-center gap-2 cursor-pointer'> <IoCallOutline />    Get Details</button>
-                                        <button className='text-xs text-shadow-2xs 
-                                        bg-gradient-to-r from-[#035594] to-[#06AED4]  text-white p-1.5 rounded-3xl px-4  cursor-pointer'>Book Now</button>
+                                    <div className='flex justify-center mt-3'>
+                                     <Link to={`/bookappointment/${doctors?._id}`} className='text-xs text-shadow-2xs 
+                                        bg-gradient-to-r from-[#035594] to-[#06AED4] flex justify-center items-center
+                                         gap-3 text-white p-1.5 rounded-3xl px-4 w-30  cursor-pointer'> <IoCallOutline />  Book Now</Link>
                                     </div>
                                 </div>
                             </div>

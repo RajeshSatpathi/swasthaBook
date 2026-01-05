@@ -223,14 +223,7 @@ function AddClinic() {
                     </div>
                 </div>
 
-                <div className="flex justify-center my-5">
-                    <button
-                        type="submit"
-                        className="bg-gradient-to-r from-[#02C98D] to-[#0575E6] p-2 w-32 rounded text-sm text-white font-semibold shadow-md"
-                    >
-                        Submit
-                    </button>
-                </div>
+        
             </form>
         </div>
     )
