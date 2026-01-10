@@ -1,19 +1,20 @@
 import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { IoBagOutline } from "react-icons/io5";
 import B from "../../assets/img/B.png"
 import { FaSlideshare, FaUserPen, FaUserShield } from "react-icons/fa6";
 import { CiMenuFries } from "react-icons/ci";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { IoIosArrowDown } from "react-icons/io";
 import { GoSignOut } from "react-icons/go";
+import { UserLogoutAPI } from "../../Features/UserFeature/AuthFeature/AuthSlice";
 
 function UserNavabar() {
   const [isOpen, setIsOpen] = useState(false)
   const { user } = useSelector((state) => state.auth);
-  console.log(user)
+  const dispatch = useDispatch()
   const [profileModal, setProfileModal] = useState(false)
-
+  const navigate = useNavigate()
   const navLinkClass = ({ isActive }) =>
     isActive
       ? "text-blue-600 font-semibold"
@@ -45,22 +46,22 @@ function UserNavabar() {
                     <img src={user?.profileimg} className="size-10 rounded-full" alt="" />
                     <h2 className='body-font font-light'>{user?.name} </h2>
                     <IoIosArrowDown />
-                    {
-                      profileModal && (
-                        <div className='bg-white p-2 
-                              absolute top-15  right-10 rounded border border-gray-100
-                               shadow-xl w-30 h-28'>
-                          <h2 className='flex items-center gap-2 my-2'>
-                            <FaUserPen color='purple' />
-                            <span className='body-font'>My Profile</span>
-                          </h2>
-                          <h2 className='flex items-center gap-2'>
-                            <GoSignOut color='green' />
-                            <span className='body-font'>Sign out</span>
-                          </h2>
-                        </div>
-                      )
-                    }
+                       {
+                            profileModal && (
+                              <div className='bg-white p-2 
+                          absolute top-15  right-10 rounded border border-gray-100
+                           shadow-xl w-30 h-28'>
+                                <h2 className='flex items-center  cursor-pointer gap-2 my-2'>
+                                  <FaUserPen color='purple' />
+                                  <span className='body-font' onClick={()=>navigate("/Admin-profile")}>My Profile</span>
+                                </h2>
+                                <h2 className='flex items-center cursor-pointer  gap-2'>
+                                  <GoSignOut color='green' />
+                                  <span className='body-font'  onClick={() => dispatch(UserLogoutAPI()).then(() => navigate("/login"))}>Sign out</span>
+                                </h2>
+                              </div>
+                            )
+                          }
                   </div>
 
                 ) : (

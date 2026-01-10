@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import { IoCallOutline, IoLocationOutline } from 'react-icons/io5'
 import PaginationUI from '../PaginationUI';
 
-function Doctorcard({ Doctors }) {
+function Doctorcard({ DoctorData }) {
 
     const [currentPage, setCurrentPage] = useState(1);
     const DoctorPerPage = 6;
     const lastIndex = currentPage * DoctorPerPage
     const firstIndex = lastIndex - DoctorPerPage;
 
-    const currentDoctors = Doctors?.slice(firstIndex, lastIndex);
+    const currentDoctors = DoctorData?.slice(firstIndex, lastIndex);
 
-    const totalPage = Math.ceil((Doctors?.length || 0) / DoctorPerPage)
+    const totalPage = Math.ceil((DoctorData?.length || 0) / DoctorPerPage)
 
     const nextPage = () => {
         if (currentPage < totalPage) setCurrentPage(prev => prev + 1)
@@ -24,7 +24,7 @@ function Doctorcard({ Doctors }) {
             {
                 currentDoctors?.map((doctors) => (
                     <div className="w-full my-5">
-                                <div className="    
+                        <div className="    
                         flex flex-col sm:flex-row 
                         overflow-hidden rounded-2xl 
                         bg-white  border border-gray-200 hover:shadow-md transition
@@ -37,8 +37,10 @@ function Doctorcard({ Doctors }) {
                             h-50 sm:h-auto
                             bg-cover bg-center 
                                 "
-                         style={{ backgroundImage: `url(${doctors?.doctorimg ||
-                             "https://png.pngtree.com/png-vector/20240122/ourmid/pngtree-doctor-symbol-color-png-image_11455718.png"})` }}
+                                style={{
+                                    backgroundImage: `url(${doctors?.doctorimg ||
+                                        "https://png.pngtree.com/png-vector/20240122/ourmid/pngtree-doctor-symbol-color-png-image_11455718.png"})`
+                                }}
                             />
 
                             {/* Content */}
@@ -91,7 +93,7 @@ function Doctorcard({ Doctors }) {
                                 <hr className="my-3 text-gray-200" />
 
                                 {/* Availability + Button */}
-                           <div className="flex flex-col md:flex-row justify-between gap-4">
+                                <div className="flex flex-col md:flex-row justify-between gap-4">
 
                                     {/* Availability */}
                                     <div>

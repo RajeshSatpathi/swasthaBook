@@ -2,10 +2,11 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import HeadingBox from '../../../Component/AdminComponent/HeadingBox'
 import profile from "../../../assets/img/profile.png"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ADDClinicAPI } from '../../../Features/AdminFeature/ClinicSlice'
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
+import  LoadingBtn from "../../../Component/Comon/LoadingBtn.jsx"
 function AddClinic() {
 
     const {
@@ -16,6 +17,7 @@ function AddClinic() {
     } = useForm()
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const {loading} = useSelector((state)=>state.clinics)
     const onSubmit = (data) => {
 
         console.log("Form Data:", data)
@@ -222,8 +224,8 @@ function AddClinic() {
                         {errors.profileimg && <p className="text-red-500 text-sm">{errors.profileimg.message}</p>}
                     </div>
                 </div>
+                <LoadingBtn loadingText="clinic added pending" btnText="Add Clinic" loading={loading} />
 
-        
             </form>
         </div>
     )

@@ -33,12 +33,12 @@ function Bookappointment() {
           <form action="" className='p-3 mt-6'>
             <div className='flex  justify-evenly text-sm flex-wrap '>
               <div className='md:w-[45%] w-full'>
-                <label htmlFor=""><span className='text-red-400 '>*</span>Doctor ID</label><br />
-                <input type="text" value={viewDoctor?._id} className='appointment-inputbox' placeholder='Name' />
+                <label htmlFor=""><span className='text-red-400 '>*</span>Doctor Name</label><br />
+                <input type="text"disabled value={viewDoctor?.doctorName} className='appointment-inputbox bg-gray-100' placeholder='Name' />
               </div>
               <div className='md:w-[45%] w-full'>
-                <label htmlFor=""><span className='text-red-400 '>*</span>Clinic ID </label><br />
-                <input type="text" className='appointment-inputbox' value={viewDoctor?.clinicId?._id} placeholder='Phone' />
+                <label htmlFor=""><span className='text-red-400 '>*</span>Clinic Name </label><br />
+                <input type="text" disabled className='appointment-inputbox bg-gray-100' value={viewDoctor?.clinicId?.userId?.name} placeholder='Phone' />
                 
               </div>
             </div>

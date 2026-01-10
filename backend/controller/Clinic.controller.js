@@ -190,3 +190,4 @@ export const adminUpdateClinicByIdAPI = async (req, res) => {
     }
 
 }
+

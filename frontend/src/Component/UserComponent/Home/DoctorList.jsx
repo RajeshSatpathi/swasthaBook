@@ -13,7 +13,7 @@ function DoctorList({ Doctors }) {
             <div className='container mx-auto  my-5  '>
                 <div className='flex justify-between items-center gap-3 flex-wrap p-3'>
                     {
-                        Doctors?.slice(0, 8).map((doctors) => (
+                        Doctors?.map((doctors) => (
                             <div className='md:w-72 w-full bg-white p-2 rounded-2xl hover:shadow-xl my-4'>
                                 <div className='flex justify-center'> 
                                 <img src={doctors?.doctorimg || "https://png.pngtree.com/png-vector/20240122/ourmid/pngtree-doctor-symbol-color-png-image_11455718.png"} 

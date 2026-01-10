@@ -51,7 +51,7 @@ function ViewClinic() {
                                 <span className='mx-1'>District - {viewClinic?.dist}</span>,
                                 <span className='mx-1'>State - {viewClinic?.state}</span>
                                 <span className='mx-1'>Pincode - {viewClinic?.pincode}</span><br />
-                                <span>Contact No :-</span>
+                                <span>Contact No :-{viewClinic?.primarymobno} , {viewClinic?.alternatemobno}</span>
                             </p>
                         </div>
                     </div>

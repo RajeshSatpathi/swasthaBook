@@ -7,6 +7,7 @@ import { categoryRoutes } from './routes/categoryRoutes.js';
 import { clinicRoutes } from './routes/ClinicRoutes.js';
 import cors from "cors"
 import { DoctorsRoutes } from './routes/DcotorsRoutes.js';
+import { appointmentRoutes } from './routes/AppointmentRoutes.js';
 dotenv.config()
 const app = express();
 app.use(express.json());
@@ -20,14 +21,12 @@ app.get("/", (req, res) => {
     res.send("Server running...")
 })
 
-
 //routes 
 app.use("/api/auth", authRoutes)
 app.use("/api/category", categoryRoutes)
 app.use("/api/clinic", clinicRoutes)
 app.use("/api/doctors", DoctorsRoutes)
-
-
+app.use("/api/appointment", appointmentRoutes)
 
 
 // port and connection 

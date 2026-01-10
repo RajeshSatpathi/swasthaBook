@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import DoctorHeading from '../../../Component/UserComponent/Doctors/DoctorHeading'
 import { useDispatch, useSelector } from 'react-redux';
 import { GETCategoryAPI } from '../../../Features/AdminFeature/SpecializationSlice';
@@ -16,9 +16,47 @@ function Doctors() {
     dispatch(GETdoctorsAPI())
 
   }, [dispatch])
+
+  const [filters, setFilters] = useState({});
+  const [DoctorData, setDoctorData] = useState([])
+
+  useEffect(() => {
+    if (Doctors && Doctors.length > 0) {
+      setDoctorData(Doctors);
+    }
+  }, [Doctors]);
+
+  //for filering the data 
+  useEffect(() => {
+    let filtered = Doctors;
+
+    if (filters.doctorname) {
+      filtered = filtered.filter(d => d.doctorName.toLowerCase().includes(filters.doctorname.toLowerCase()));
+
+    }
+    if (filters.location) {
+      filtered = filtered.filter(d => d.clinicId?.city === filters.location);
+    }
+
+    if (filters.specialization) {
+      filtered = filtered.filter(d => d.DoctorSpecialization === filters.specialization);
+    }
+
+    if (filters.day) {
+      filtered = filtered.filter(d =>
+        d.availability?.some(a => a.day === filters.day)
+      );
+    }
+
+    setDoctorData(filtered);
+  }, [filters, Doctors]);
+
   return (
     <div>
-      <DoctorHeading specialization={specialization} />
+      <DoctorHeading
+        specialization={specialization}
+        setFilters={setFilters}
+      />
       <div className='container mx-auto flex  p-5 gap-5 my-2 bg-gray-50'>
         {/* filter section code  */}
         <div className='w-[23%] max-sm:hidden h-full rounded-2xl  bg-white shadow p-2'>
@@ -67,12 +105,12 @@ function Doctors() {
 
         <div className=' w-full'>
           <div className='my-2 flex justify-between p-2'>
-            <h2 className='font-semibold text-lg '>Showing <span className='text-gray-400'>400</span>
+            <h2 className='font-semibold text-lg '>Showing <span className='text-gray-400 mx-2'>{DoctorData ? DoctorData.length : ""}</span>
               Doctors For you</h2>
             <span className='flex gap-2'>Availability <input type="checkbox" /></span>
           </div>
 
-              <Doctorcard Doctors={Doctors} />
+          <Doctorcard DoctorData={DoctorData} />
 
         </div>
       </div>
